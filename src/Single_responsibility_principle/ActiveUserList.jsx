@@ -1,14 +1,7 @@
 import { useUsers } from "./useUsers";
+import { getOnlyActive } from "./getOnlyActive";
 import UserItem from "./UserItem";
 import { useMemo } from "react";
-
-const getOnlyActive = (users) => {
-  const weekAgo = new Date();
-  weekAgo.setDate(weekAgo.getDate() - 7);
-  return users.filter(
-    (user) => !user.isBanned && user.lastActivityAt >= weekAgo
-  );
-};
 
 const useActiveUsers = () => {
   const users = useUsers();
